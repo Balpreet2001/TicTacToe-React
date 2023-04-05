@@ -1,8 +1,7 @@
-import React from 'react'
-
-export const Square = ({value}) => {
+const Square = ( {value} ) => {
   return (
-    <div>{value} </div>
+    <button className="square"> { value } </button>
   )
 }
-  
+
+export default Square;

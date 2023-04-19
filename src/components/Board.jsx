@@ -2,14 +2,14 @@
 import Square from './Square'
 
 
-export const Board = ({sqaures , handleSquareClick}) => {
+export const Board = ({squares , handleSquareClick}) => {
 
 
 
   const renderSquare = position => {
     return(
       <Square
-      value={sqaures[position]}
+      value={squares[position]}
       onClick={()=>handleSquareClick(position)}
       />
     );

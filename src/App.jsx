@@ -17,7 +17,7 @@ function App() {
   };
   const gamingBoard = History[CurrentMove];
 
-  const winner = calculateWinner(gamingBoard.squares);
+  const { winner, winningSquares } = calculateWinner(gamingBoard.squares);
   console.log({ HistoryLength: History.length, CurrentMove });
 
   const handleSquareClick = clickedPosition => {
@@ -58,15 +58,25 @@ function App() {
   const moveTo = move => {
     setCurrentMove(move);
   };
+
+  console.log(winningSquares);
   return (
     <div className="app">
+      <h1 className="mb-5 text-2xl">
+        TIC <span className="text-green-400 m-4">TAC</span> TOE
+      </h1> 
       <StatusMessage winner={winner} gamingBoard={gamingBoard} />
-      <button type="button" onClick={resetHistory} className={`btn-reset ${winner ? 'active' : ''} m-5`}>
+      <button
+        type="button"
+        onClick={resetHistory}
+        className={`btn-reset ${winner ? 'active' : ''} m-5`}
+      >
         RESET GAME
       </button>
       <Board
         squares={gamingBoard.squares}
         handleSquareClick={handleSquareClick}
+        winningSquares={winningSquares}
       />
       <h2 className="mt-10 mb-5 text-red-300 font-bold ">
         GAME HISTORY IS GIVEN BELOW

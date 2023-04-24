@@ -73,6 +73,7 @@ function App() {
       >
         RESET GAME
       </button>
+      <div className='bg-balls'></div>
       <Board
         squares={gamingBoard.squares}
         handleSquareClick={handleSquareClick}
